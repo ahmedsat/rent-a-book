@@ -3,7 +3,7 @@ default:
 	@echo "default"
 
 dev:
-	cp example.env .env
+	ln -sf example.env .env
 	watchexec -e go -c -r go run main.go
 
 setup:
