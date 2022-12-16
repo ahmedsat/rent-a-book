@@ -1,58 +1,60 @@
-{{ template "header.html"}}
+{{ template "header.html" .}}
 
 <nav>
-    <div class="nav nav-tabs justify-content-center"
-         id="nav-tab"
-         role="tablist">
-        <button class="nav-link active"
-                id="nav-home-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-home"
-                type="button"
-                role="tab"
-                aria-controls="nav-home"
-                aria-selected="true">
-            Home
-        </button>
-        <button class="nav-link"
-                id="nav-clients-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-clients"
-                type="button"
-                role="tab"
-                aria-controls="nav-clients"
-                aria-selected="false">Clients</button>
-        <button class="nav-link"
-                id="nav-books-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-books"
-                type="button"
-                role="tab"
-                aria-controls="nav-books"
-                aria-selected="false">Books</button>
+     <div class="nav nav-tabs justify-content-center"
+          id="nav-tab"
+          role="tablist">
+          <button class="nav-link active"
+                  id="nav-home-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-home"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-home"
+                  aria-selected="true">
+               Home
+          </button>
+          <button class="nav-link"
+                  id="nav-clients-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-clients"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-clients"
+                  aria-selected="false">Clients</button>
+          <button class="nav-link"
+                  id="nav-books-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-books"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-books"
+                  aria-selected="false">Books</button>
 
-    </div>
+     </div>
 </nav>
+<div>
+</div>
 <div class="tab-content"
      id="nav-tabContent">
-    <div class="tab-pane fade show active"
-         id="nav-home"
-         role="tabpanel"
-         aria-labelledby="nav-home-tab"
-         tabindex="0">{{ template "home.html" }}
-    </div>
-    <div class="tab-pane fade show "
-         id="nav-clients"
-         role="tabpanel"
-         aria-labelledby="nav-clients-tab"
-         tabindex="0">{{ template "clients.html" }}
-    </div>
-    <div class="tab-pane fade show "
-         id="nav-books"
-         role="tabpanel"
-         aria-labelledby="nav-books-tab"
-         tabindex="0">{{ template "books.html" }}
-    </div>
+     <div class="tab-pane fade show active"
+          id="nav-home"
+          role="tabpanel"
+          aria-labelledby="nav-home-tab"
+          tabindex="0">{{ template "home.html" .}}
+     </div>
+     <div class="tab-pane fade show "
+          id="nav-clients"
+          role="tabpanel"
+          aria-labelledby="nav-clients-tab"
+          tabindex="0">{{ template "clients.html" .}}
+     </div>
+     <div class="tab-pane fade show "
+          id="nav-books"
+          role="tabpanel"
+          aria-labelledby="nav-books-tab"
+          tabindex="0">{{ template "books.html" .}}
+     </div>
 </div>
 
 
