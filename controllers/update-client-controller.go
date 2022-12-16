@@ -8,7 +8,7 @@ import (
 	"library.demo/rent/models"
 )
 
-func UpdateUserForm(c *gin.Context) {
+func UpdateClientForm(c *gin.Context) {
 	clientID, ok := c.Params.Get("id")
 	if !ok {
 		c.Redirect(http.StatusFound, "/")
@@ -31,7 +31,7 @@ func UpdateUserForm(c *gin.Context) {
 		"client": client,
 	})
 }
-func UpdateUserHandler(c *gin.Context) {
+func UpdateClientHandler(c *gin.Context) {
 
 	client := models.Client{}
 

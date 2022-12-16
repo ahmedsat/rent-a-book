@@ -8,14 +8,14 @@ import (
 	"library.demo/rent/models"
 )
 
-func AddUserForm(c *gin.Context) {
+func AddClientForm(c *gin.Context) {
 
 	c.HTML(http.StatusOK, "add-user-form.html", gin.H{
 		"title": "create new Client",
 	})
 }
 
-func AddUserHandler(c *gin.Context) {
+func AddClientHandler(c *gin.Context) {
 
 	client := models.Client{}
 

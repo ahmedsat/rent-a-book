@@ -46,5 +46,7 @@ func Home(c *gin.Context) {
 		"bookItemsCount": bookItemsCount,
 		"clientsCount":   clientsCount,
 		"clients":        clients,
+		"books":          books,
+		"bookItems":      bookItems,
 	})
 }

@@ -7,23 +7,33 @@ import (
 
 func RootRoutes(r *gin.Engine) {
 
-	r.Static("/assets", "./assets")
+	r.Static("/assets", "./assets") // serve statics (static html, css, javascript, images, ...)
 	// r.StaticFS("/more_static", http.Dir("my_file_system"))
-	r.StaticFile("/favicon.ico", "./resources/favicon.ico")
+	r.StaticFile("/favicon.ico", "./resources/favicon.ico") // serve favicon
 
-	r.GET("/", controllers.Home)
+	r.GET("/", controllers.Home) // root path - main page
 
-	r.GET("/client/add", controllers.AddUserForm)
-	r.POST("/client/add", controllers.AddUserHandler)
+	// clint routs
+	r.GET("/client/:id", controllers.ClientDetails)
 
-	r.GET("/client/update", controllers.UpdateUserForm)
-	r.GET("/client/update/:id", controllers.UpdateUserForm)
-	r.POST("/client/update", controllers.UpdateUserHandler)
-	r.POST("/client/update/:id", controllers.UpdateUserHandler)
+	r.GET("/client/add", controllers.AddClientForm)
+	r.POST("/client/add", controllers.AddClientHandler)
+
+	r.GET("/client/update/:id", controllers.UpdateClientForm)
+	r.POST("/client/update/:id", controllers.UpdateClientHandler)
 
 	r.GET("/client/delete/:id", controllers.DeleteClient)
 
-	r.GET("/client/:id", controllers.ClientDetails)
+	// book routs
+	r.GET("/book/:id", controllers.BookDetails)
+
+	r.GET("/book/add", mocController)
+	r.POST("/book/add", mocController)
+
+	r.GET("/book/update/:id", mocController)
+	r.POST("/book/update/:id", mocController)
+
+	r.GET("/book/delete/:id", mocController)
 
 	r.GET("/test", mocController)
 
