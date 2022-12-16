@@ -12,6 +12,7 @@ func RootRoutes(r *gin.Engine) {
 	r.StaticFile("/favicon.ico", "./resources/favicon.ico")
 
 	r.GET("/", controllers.Home)
+	r.GET("/client/:id", controllers.ClientDetails)
 
 	r.GET("/test", mocController)
 

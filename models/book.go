@@ -11,6 +11,8 @@ type Book struct {
 	Publisher string
 	Location  string
 	ImageURI  string
+
+	BookItems []BookItem `gorm:"foreignKey:BookRefer"`
 }
 
 type BookItem struct {
@@ -18,6 +20,4 @@ type BookItem struct {
 	RentedAt    gorm.DeletedAt
 	BookRefer   uint
 	RenterRefer uint
-	Book        Book   `gorm:"foreignKey:BookRefer;"`
-	Renter      Client `gorm:"foreignKey:RenterRefer;"`
 }

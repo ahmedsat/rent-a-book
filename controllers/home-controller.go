@@ -27,13 +27,19 @@ func Home(c *gin.Context) {
 	}
 	bookItemsCount := result.RowsAffected
 
-	result = database.Instance.Find(&clients)
+	result = database.Instance.Model(models.Client{}).Preload("BookItems").Find(&clients)
 	if result.Error != nil {
 		log.Println(result.Error.Error())
 	}
 	clientsCount := result.RowsAffected
 
-	println(bookItemsCount)
+	// scratches
+	// for _, client := range clients {
+
+	// 	println(len(client.BookItems))
+	// }
+	// end scratches
+
 	c.HTML(http.StatusOK, "index.html", gin.H{
 		"title":          "book renter | main page",
 		"booksCount":     booksCount,

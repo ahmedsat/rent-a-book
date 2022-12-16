@@ -9,4 +9,6 @@ type Client struct {
 	Email   string `json:"email" gorm:"unique"`
 	Phone   string `json:"Phone"`
 	Address string `json:"address"`
+
+	BookItems []BookItem `gorm:"foreignKey:RenterRefer;"`
 }

@@ -68,7 +68,10 @@ func seedBooks() {
 func seedBookItems() {
 
 	bookItems := []models.BookItem{
+		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, BookRefer: 1, RenterRefer: 1},
+		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, BookRefer: 2, RenterRefer: 1},
 		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, BookRefer: 3, RenterRefer: 1},
+		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, BookRefer: 4, RenterRefer: 1},
 		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, BookRefer: 1, RenterRefer: 2},
 		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 1},
 		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 2},
