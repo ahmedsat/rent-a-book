@@ -36,16 +36,16 @@ func ClientDetails(c *gin.Context) {
 		rentedBooksMap[bookItem.BookRefer] = book.Title
 	}
 
-	// c.HTML(http.StatusOK, "client-details.html", gin.H{
-	// 	"title":  "book renter | client details",
-	// 	"client": client,
-	// 	"books":  rentedBooksMap,
-	// })
-
-	c.JSON(http.StatusOK, gin.H{
+	c.HTML(http.StatusOK, "client-details.html", gin.H{
 		"title":  "book renter | client details",
 		"client": client,
 		"books":  rentedBooksMap,
 	})
+
+	// c.JSON(http.StatusOK, gin.H{
+	// 	"title":  "book renter | client details",
+	// 	"client": client,
+	// 	"books":  rentedBooksMap,
+	// })
 
 }
