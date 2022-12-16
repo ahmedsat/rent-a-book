@@ -5,10 +5,10 @@ import "gorm.io/gorm"
 type Client struct {
 	gorm.Model
 
-	Name    string `json:"name" gorm:"default:no name"`
-	Email   string `json:"email" gorm:"unique"`
-	Phone   string `json:"Phone"`
-	Address string `json:"address"`
+	Name    string `form:"name" gorm:"default:no name"`
+	Email   string `form:"email" gorm:"unique"`
+	Phone   string `form:"phone"`
+	Address string `form:"address"`
 
 	BookItems []BookItem `gorm:"foreignKey:RenterRefer;"`
 }
