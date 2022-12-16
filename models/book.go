@@ -15,7 +15,9 @@ type Book struct {
 
 type BookItem struct {
 	gorm.Model
-	RentedAt gorm.DeletedAt
-	Book     Book   `gorm:"foreignKey:ID;"`
-	Renter   Client `gorm:"foreignKey:ID;"`
+	RentedAt    gorm.DeletedAt
+	BookRefer   uint
+	RenterRefer uint
+	Book        Book   `gorm:"foreignKey:BookRefer;"`
+	Renter      Client `gorm:"foreignKey:RenterRefer;"`
 }

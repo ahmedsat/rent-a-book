@@ -68,19 +68,19 @@ func seedBooks() {
 func seedBookItems() {
 
 	bookItems := []models.BookItem{
-		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, Renter: models.Client{Model: gorm.Model{ID: 3}}, Book: models.Book{Model: gorm.Model{ID: 1}}},
-		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, Renter: models.Client{Model: gorm.Model{ID: 1}}, Book: models.Book{Model: gorm.Model{ID: 2}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 1}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 2}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 5}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 4}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 3}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 2}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 1}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 3}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 1}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 5}}},
-		{RentedAt: gorm.DeletedAt{Valid: false}, Book: models.Book{Model: gorm.Model{ID: 1}}},
+		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, BookRefer: 3, RenterRefer: 1},
+		{RentedAt: gorm.DeletedAt{Valid: true, Time: time.Now()}, BookRefer: 1, RenterRefer: 2},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 1},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 2},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 5},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 3},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 4},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 2},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 1},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 5},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 3},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 1},
+		{RentedAt: gorm.DeletedAt{Valid: false}, BookRefer: 2},
 	}
 
 	result := Instance.Create(&bookItems)
