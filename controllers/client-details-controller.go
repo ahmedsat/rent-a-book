@@ -20,7 +20,7 @@ func ClientDetails(c *gin.Context) {
 		return
 	}
 
-	rentedBooksMap := make(map[uint]string)
+	rentedBooks := []models.Book{}
 
 	for _, bookItem := range client.BookItems {
 
@@ -33,19 +33,19 @@ func ClientDetails(c *gin.Context) {
 			})
 			return
 		}
-		rentedBooksMap[bookItem.BookRefer] = book.Title
+		rentedBooks = append(rentedBooks, book)
 	}
 
 	c.HTML(http.StatusOK, "client-details.html", gin.H{
 		"title":  "book renter | client details",
 		"client": client,
-		"books":  rentedBooksMap,
+		"books":  rentedBooks,
 	})
 
 	// c.JSON(http.StatusOK, gin.H{
 	// 	"title":  "book renter | client details",
 	// 	"client": client,
-	// 	"books":  rentedBooksMap,
+	// 	"books":  rentedBooks,
 	// })
 
 }
