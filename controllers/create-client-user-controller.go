@@ -19,7 +19,14 @@ func AddUserHandler(c *gin.Context) {
 
 	client := models.Client{}
 
-	c.Bind(&client)
+	err := c.Bind(&client)
+	if err != nil {
+		c.HTML(http.StatusBadRequest, "error.html", gin.H{
+			"error": err,
+			"title": "error : 400",
+		})
+		return
+	}
 
 	result := database.Instance.Create(&client)
 	if result.Error != nil {

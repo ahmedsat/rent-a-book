@@ -8,6 +8,8 @@
     <div class="col-6 col-sm-4 themed-grid-col">Phone : <a href="tel:{{.client.Phone}}">{{.client.Phone}}</a></div>
     <div class="col-6 col-sm-4 themed-grid-col">Address : {{.client.Address}}</div>
     <div class="col-6 col-sm-4 themed-grid-col">Rented books count : {{.client.BookItems | len}}</div>
+    <a class="col-6 col-sm-4 themed-grid-col btn btn-danger"
+       href="/client/delete/{{.client.ID}}">DELETE</a>
   </div>
 
   <table class="table table-striped table-hover">
