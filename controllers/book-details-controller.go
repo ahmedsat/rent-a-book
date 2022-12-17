@@ -20,16 +20,24 @@ func BookDetails(c *gin.Context) {
 		return
 	}
 
-	// c.HTML(http.StatusOK, "client-details.html", gin.H{
-	// 	"title":  "book renter | client details",
-	// 	"client": client,
-	// 	"books":  rentedBooks,
-	// })
+	bookItemsCount := len(book.BookItems)
+	rentedBooksCount := 0
+	for _, bookItem := range book.BookItems {
+		if !bookItem.RentedAt.Valid {
+			rentedBooksCount++
+		}
+	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"title": "book renter | client details",
-		"book":  book,
-		// "books":  rentedBooks,
+	c.HTML(http.StatusOK, "book-details.html", gin.H{
+		"title":            "book renter | client details",
+		"book":             book,
+		"bookItemsCount":   bookItemsCount,
+		"rentedBooksCount": rentedBooksCount,
 	})
+
+	// c.JSON(http.StatusOK, gin.H{
+	// 	"title": "book renter | client details",
+	// 	"book":  book,
+	// })
 
 }

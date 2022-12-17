@@ -1,0 +1,48 @@
+{{ template "header.html" .}}
+<div class="container d-flex align-items-center flex-column"
+     style="min-height:100vh;justify-content: space-evenly;">
+  <h2>Book details for <strong><em>{{.book.Title}}</em></strong></h2>
+  <div class="row mb-3 text-center">
+    <div class="col-6 col-sm-4 themed-grid-col">Title : {{.book.Title}}</div>
+    <div class="col-6 col-sm-4 themed-grid-col">Writer :{{.book.Writer}}</div>
+    <div class="col-6 col-sm-4 themed-grid-col">Publisher : {{.book.Publisher}}</div>
+    <div class="col-6 col-sm-4 themed-grid-col">Year : {{.book.Year}}</div>
+    <div class="col-6 col-sm-4 themed-grid-col">Location : {{.book.Location}}</div>
+    <div class="col-6 col-sm-4 themed-grid-col">Count : {{.bookItemsCount}}</div>
+    <div class="col-6 col-sm-4 themed-grid-col">Rented : {{.rentedBooksCount}}</div>
+    <a class="col-6 col-sm-4 themed-grid-col btn btn-danger"
+       href="/book/delete/{{.book.ID}}">DELETE</a>
+  </div>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Item id</th>
+        <th scope="col">Is rented</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{ range .book.BookItems }}
+      <tr>
+        <th scope="row">{{.ID}}</th>
+        <td>
+          {{ if .RentedAt.Valid }}
+          <span style="color: red;">
+            rented
+          </span>
+          {{else}}
+          <span style="color: green;">
+            not rented
+          </span>
+          {{end}}
+        </td>
+
+        {{ end }}
+    </tbody>
+  </table>
+
+
+</div>
+{{.books}}
+{{ template "footer.html" }}

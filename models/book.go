@@ -5,12 +5,12 @@ import "gorm.io/gorm"
 type Book struct {
 	gorm.Model
 
-	Year      int
-	Title     string
-	Writer    string
-	Publisher string
-	Location  string
-	ImageURI  string
+	Title     string `form:"name"`
+	Writer    string `form:"writer"`
+	Publisher string `form:"publisher"`
+	Year      int    `form:"year"`
+	Location  string `form:"location"`
+	ImageURI  string `form:"image" gorm:"default:https://c1.wallpaperflare.com/preview/304/436/847/book-embossing-leather-empty.jpg"`
 
 	BookItems []BookItem `gorm:"foreignKey:BookRefer"`
 }
