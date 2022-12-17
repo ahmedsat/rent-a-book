@@ -36,15 +36,8 @@ func RootRoutes(r *gin.Engine) {
 	r.GET("/book/delete/:id", controllers.DeleteBook)
 
 	// book routs
-	r.GET("/bookItem/:id", mocController)
-
-	r.GET("/bookItem/add", mocController)
-	r.POST("/bookItem/add", mocController)
-
-	r.GET("/bookItem/update/:id", mocController)
-	r.POST("/bookItem/update/:id", mocController)
-
-	r.GET("/bookItem/delete/:id", mocController)
+	r.GET("/bookItem/add/:id", controllers.AddBookItem)
+	r.GET("/bookItem/delete/:id", controllers.DeleteBookItem)
 
 	r.GET("/test", mocController)
 
