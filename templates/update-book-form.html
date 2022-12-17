@@ -1,0 +1,79 @@
+{{ template "header.html" .}}
+<div class="container d-flex align-items-center flex-column"
+     style="min-height:100vh;justify-content: space-evenly;">
+  <main class="form-signin w-100 m-auto">
+    <form method="post">
+
+      <h1 class="h3 mb-3 fw-normal">Please enter book data</h1>
+      <input type="hidden"
+             name="id"
+             value="{{.book.ID}}">
+
+      <div class="form-floating">
+        <input type="text"
+               name="name"
+               value="{{.book.Title}}"
+               class="form-control"
+               id="floatingInput"
+               placeholder="Some One">
+        <label for="floatingInput">Book Title</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="text"
+               name="writer"
+               value="{{.book.Writer}}"
+               class="form-control"
+               id="floatingInput"
+               placeholder="name@example.com">
+        <label for="floatingInput">Writer name</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="text"
+               name="publisher"
+               value="{{.book.Publisher}}"
+               class="form-control"
+               id="floatingInput"
+               placeholder="+20123456789">
+        <label for="floatingInput">Publisher</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="number"
+               name="year"
+               value="{{.book.Year}}"
+               class="form-control"
+               id="floatingInput"
+               placeholder="address">
+        <label for="floatingInput">Publishing Year</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="text"
+               name="location"
+               value="{{.book.Location}}"
+               class="form-control"
+               id="floatingInput"
+               placeholder="address">
+        <label for="floatingInput">Location</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="url"
+               name="image"
+               value="{{.book.ImageURI}}"
+               class="form-control"
+               id="floatingInput"
+               placeholder="address">
+        <label for="floatingInput">ImageURI</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary"
+              type="submit">Update</button>
+
+    </form>
+  </main>
+</div>
+
+{{ template "footer.html" }}

@@ -30,8 +30,8 @@ func RootRoutes(r *gin.Engine) {
 	r.GET("/book/add", controllers.AddBookForm)
 	r.POST("/book/add", controllers.AddBookHandler)
 
-	r.GET("/book/update/:id", mocController)
-	r.POST("/book/update/:id", mocController)
+	r.GET("/book/update/:id", controllers.UpdateBookForm)
+	r.POST("/book/update/:id", controllers.UpdateBookHandler)
 
 	r.GET("/book/delete/:id", controllers.DeleteBook)
 
