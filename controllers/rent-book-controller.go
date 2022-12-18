@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -62,6 +63,7 @@ func RentBook(c *gin.Context) {
 	// how rent the book
 
 	if !bookItem.RentedAt.Valid {
+		log.Println("not rented")
 		bookItem.RentedAt = gorm.DeletedAt{Time: time.Now(), Valid: true}
 		bookItem.RenterRefer = client.ID
 		result = database.Instance.Save(&bookItem)
@@ -73,6 +75,7 @@ func RentBook(c *gin.Context) {
 			return
 		}
 		c.Redirect(http.StatusFound, "/client/"+fmt.Sprint(client.ID))
+		return
 	}
 
 	if bookItem.RenterRefer != client.ID {

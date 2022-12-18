@@ -18,6 +18,7 @@ func DeleteBook(c *gin.Context) {
 		})
 		return
 	}
+
 	result = database.Instance.Delete(&models.Book{}, id)
 	if result.Error != nil {
 		c.HTML(http.StatusInternalServerError, "error.html", gin.H{
