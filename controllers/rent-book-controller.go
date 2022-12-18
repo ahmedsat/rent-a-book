@@ -59,8 +59,34 @@ func RentBook(c *gin.Context) {
 		return
 	}
 
-	bookItem.RentedAt = gorm.DeletedAt{Time: time.Now(), Valid: true}
-	bookItem.RenterRefer = client.ID
+	// how rent the book
+
+	if !bookItem.RentedAt.Valid {
+		bookItem.RentedAt = gorm.DeletedAt{Time: time.Now(), Valid: true}
+		bookItem.RenterRefer = client.ID
+		result = database.Instance.Save(&bookItem)
+		if result.Error != nil {
+			c.HTML(http.StatusInternalServerError, "error.html", gin.H{
+				"error": result.Error.Error(),
+				"title": "error : 500",
+			})
+			return
+		}
+		c.Redirect(http.StatusFound, "/client/"+fmt.Sprint(client.ID))
+	}
+
+	if bookItem.RenterRefer != client.ID {
+		c.HTML(http.StatusBadRequest, "error.html", gin.H{
+			"error": "this book is already rented",
+			"title": "error : 400",
+		})
+		return
+	}
+
+	// book is rented by user then return it
+
+	bookItem.RentedAt = gorm.DeletedAt{Valid: false}
+	bookItem.RenterRefer = 0
 	result = database.Instance.Save(&bookItem)
 	if result.Error != nil {
 		c.HTML(http.StatusInternalServerError, "error.html", gin.H{
@@ -69,7 +95,5 @@ func RentBook(c *gin.Context) {
 		})
 		return
 	}
-
 	c.Redirect(http.StatusFound, "/client/"+fmt.Sprint(client.ID))
-
 }

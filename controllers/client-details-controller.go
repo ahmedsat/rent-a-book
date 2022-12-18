@@ -20,7 +20,7 @@ func ClientDetails(c *gin.Context) {
 		return
 	}
 
-	rentedBooks := []models.Book{}
+	rentedBooks := []map[string]any{}
 
 	for _, bookItem := range client.BookItems {
 
@@ -33,7 +33,7 @@ func ClientDetails(c *gin.Context) {
 			})
 			return
 		}
-		rentedBooks = append(rentedBooks, book)
+		rentedBooks = append(rentedBooks, map[string]any{"itemID": bookItem.ID, "book": book})
 	}
 
 	c.HTML(http.StatusOK, "client-details.html", gin.H{
