@@ -9,7 +9,16 @@ import (
 )
 
 func DeleteBook(c *gin.Context) {
-	result := database.Instance.Delete(&models.Book{}, c.Param("id"))
+	id := c.Param("id")
+	result := database.Instance.Delete(&models.BookItem{}, "book_refer = ?", id)
+	if result.Error != nil {
+		c.HTML(http.StatusInternalServerError, "error.html", gin.H{
+			"error": result.Error.Error(),
+			"title": "error : 500",
+		})
+		return
+	}
+	result = database.Instance.Delete(&models.Book{}, id)
 	if result.Error != nil {
 		c.HTML(http.StatusInternalServerError, "error.html", gin.H{
 			"error": result.Error.Error(),

@@ -24,6 +24,7 @@ func AddBookItem(c *gin.Context) {
 	bookItem := models.BookItem{
 		BookRefer: uint(id),
 	}
+
 	result := database.Instance.Create(&bookItem)
 	if result.Error != nil {
 		c.HTML(http.StatusInternalServerError, "error.html", gin.H{
@@ -33,7 +34,7 @@ func AddBookItem(c *gin.Context) {
 		return
 	}
 
-	c.Redirect(http.StatusFound, "/book/id")
+	c.Redirect(http.StatusFound, "/book/"+c.Param("id"))
 
 }
 

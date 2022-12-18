@@ -27,4 +27,25 @@
             href="/assets/css/main.css">
 </head>
 
-<body class="text-center">
+<nav class="navbar sticky-top">
+      <div class="container-fluid">
+            <a class="navbar-brand"
+               href="/">Navbar</a>
+            <form class="d-flex"
+                  method="post"
+                  action="/rent">
+                  <input class="form-control me-2"
+                         type="number"
+                         name="client"
+                         placeholder="User ID">
+                  <input class="form-control me-2"
+                         type="number"
+                         name="item"
+                         placeholder="Book Item ID">
+                  <button class="btn btn-outline-success"
+                          type="submit">Rent</button>
+            </form>
+      </div>
+</nav>
+
+<body class="text-center mt-3">

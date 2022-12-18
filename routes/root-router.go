@@ -39,6 +39,9 @@ func RootRoutes(r *gin.Engine) {
 	r.GET("/bookItem/add/:id", controllers.AddBookItem)
 	r.GET("/bookItem/delete/:id", controllers.DeleteBookItem)
 
+	// renting routs
+	r.POST("/rent", controllers.RentBook)
+
 	r.GET("/test", mocController)
 
 }
