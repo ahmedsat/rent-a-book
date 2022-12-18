@@ -10,12 +10,6 @@ import (
 	"library.demo/rent/routes"
 )
 
-// Book ...
-type Book struct {
-	Title  string
-	Author string
-}
-
 func main() {
 
 	AutoMigrate := os.Getenv("AUTO_MIGRATE")
