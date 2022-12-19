@@ -23,7 +23,7 @@ func BookDetails(c *gin.Context) {
 	bookItemsCount := len(book.BookItems)
 	rentedBooksCount := 0
 	for _, bookItem := range book.BookItems {
-		if !bookItem.RentedAt.Valid {
+		if bookItem.RentedAt.Valid {
 			rentedBooksCount++
 		}
 	}

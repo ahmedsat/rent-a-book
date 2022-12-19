@@ -9,11 +9,7 @@ import (
 )
 
 func UpdateClientForm(c *gin.Context) {
-	clientID, ok := c.Params.Get("id")
-	if !ok {
-		c.Redirect(http.StatusFound, "/")
-		return
-	}
+	clientID := c.Param("id")
 
 	client := models.Client{}
 
@@ -31,6 +27,8 @@ func UpdateClientForm(c *gin.Context) {
 		"client": client,
 	})
 }
+
+
 func UpdateClientHandler(c *gin.Context) {
 
 	client := models.Client{}

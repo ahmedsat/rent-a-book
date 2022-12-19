@@ -8,7 +8,6 @@ import (
 func RootRoutes(r *gin.Engine) {
 
 	r.Static("/assets", "./assets") // serve statics (static html, css, javascript, images, ...)
-	// r.StaticFS("/more_static", http.Dir("my_file_system"))
 	r.StaticFile("/favicon.ico", "./resources/favicon.ico") // serve favicon
 
 	r.GET("/", controllers.Home) // root path - main page
